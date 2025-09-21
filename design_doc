@@ -1,0 +1,34 @@
+1. Chunking Strategy
+The system employs a RecursiveCharacterTextSplitter from the LangChain library, configured with a chunk_size of 1,000 characters and a chunk_overlap of 200 characters.
+
+Rationale:
+Semantic Cohesion: A 1,000-character chunk is large enough to contain a complete paragraph or a small table section, preserving the local semantic context of the financial text.
+Recursive Splitting: This method is robust for unstructured text like parsed HTML. It prioritizes splitting on meaningful separators like paragraphs (\n\n), then sentences, and finally words, which is more effective than a naive fixed-size split.
+
+
+2. Embedding Model Choice & Why
+The project uses the all-MiniLM-L6-v2 model from the sentence-transformers library.
+
+Rationale:
+High Performance on a Local Machine: It is a small yet powerful model that provides excellent performance in semantic search tasks without requiring a GPU or significant computational resources. It runs quickly and efficiently on a standard CPU.
+Semantic Understanding: It is fine-tuned on a massive dataset to understand the nuanced meaning and context of sentences, making it ideal for matching a user's natural language query to the dense, formal language found in 10-K filings.
+
+3. Agent/Query Decomposition Approach
+The agent's intelligence is built on a multi-step, tool-based architecture driven by custom, prompt-based LLM calls.
+
+Intent Classification: The agent's first step is to classify the user's query as either "quantitative" (requiring a number) or "qualitative" (requiring a summary). This is the primary routing decision that determines which tool the agent will use.
+Query Decomposition: The agent then uses an LLM with a strict, example-driven prompt to decompose the query. The prompt contains a critical rule to only generate sub-queries for the three companies in scope (Microsoft, Google, NVIDIA), preventing model "hallucination." This step breaks down complex comparative questions into a series of simple, factual tasks.
+Tool-Based Execution Loop: The core of the agent is a loop that iterates through each sub-query. For each task, it performs the following:
+Retrieve: Fetches a large number of context chunks (50) from the vector store to ensure the answer is likely present.
+Filter & Cap: Applies a keyword-based filter to the retrieved chunks to isolate the most relevant ones, then "caps" the context at the top 10 to ensure reliability and focus.
+Execute: Based on the initial classification, it invokes either the Number Extractor tool or the Text Summarizer tool on the clean, capped context.
+Final Synthesis: Once the loop is complete and all the necessary data points (numbers or summaries) have been extracted, a final LLM call synthesizes these clean results into a coherent narrative answer and reasoning. The final JSON object is constructed in Python for guaranteed formatting.
+
+4. Interesting Challenges & Decisions
+Challenge: API Context Window Overload.
+Decision: Our most critical challenge was that sending too much filtered context to the LLM caused the API calls to fail. The solution was to implement Context Capping, where we strictly limit the final context sent to the LLM to the top 10 most relevant chunks.
+Challenge: Handling Both Numerical and Descriptive Queries.
+Challenge: Inconsistent PDF Availability vs. Reliable HTML.
+Decision: An early attempt to use PDF filings to get precise page numbers failed because the SEC does not provide clean, single-file PDFs for all filings, hence had to revert to the 100% reliable HTML filings and implement Page Number Estimation.
+
+
