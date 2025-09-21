@@ -101,3 +101,7 @@ The agent will then execute its multi-step process and print the final, formatte
 ```sh
 python main.py query "How did NVIDIA’s data center revenue grow from 2022 to 2023?"
 ```
+
+```sh
+python main.py query "What percentage of Google’s revenue came from advertising in 2023?"
+```
