@@ -1,1 +1,0 @@
-This project is a sophisticated AI-powered agent designed to answer complex financial questions about public companies using their 10-K filings. It implements a full Retrieval-Augmented Generation (RAG) pipeline combined with an "agentic" architecture that can decompose complex questions, retrieve information from multiple documents, and synthesize coherent answers.
