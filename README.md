@@ -96,7 +96,7 @@ python main.py query "Your financial question here"
 
 The agent will then execute its multi-step process and print the final, formatted JSON answer to the console.
 
-**Example:**
+**Examples:**
 
 ```sh
 python main.py query "How did NVIDIA’s data center revenue grow from 2022 to 2023?"
@@ -104,4 +104,12 @@ python main.py query "How did NVIDIA’s data center revenue grow from 2022 to 2
 
 ```sh
 python main.py query "What percentage of Google’s revenue came from advertising in 2023?"
+```
+
+```sh
+python main.py query "What was Microsoft’s total revenue in 2023?"
+```
+
+```sh
+python main.py query "Compare the R&D spending as a percentage of revenue across all three companies in 2023"
 ```
