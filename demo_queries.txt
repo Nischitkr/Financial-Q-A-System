@@ -1,0 +1,331 @@
+THIS FILE CONTAINS THE OUTPUT FOR ALL THE 5 TYPES OF QUERY GIVEN IN THE DOCUMENT
+
+1. 
+(my_project_env) nischitkr@Nischits-MacBook-Air coding % python main.py query "How did NVIDIA’s data center revenue grow from 2022 to 2023?"
+Initializing Financial Agent...
+Successfully connected to vector store.
+Step 1: Classifying query intent...
+  -> Query type: quantitative
+Step 2: Decomposing query...
+  -> Sub-queries: ["What was NVIDIA's data center revenue in 2022?", "What was NVIDIA's data center revenue in 2023?", "What is the growth rate of NVIDIA's data center revenue from 2022 to 2023?"]
+Step 3: Executing 'quantitative' tool for each sub-query...
+  -> Processing: 'What was NVIDIA's data center revenue in 2022?' for NVDA (2022)
+    -> Retrieved 50 chunks, filtered down to 38.
+  -> Processing: 'What was NVIDIA's data center revenue in 2023?' for NVDA (2023)
+    -> Retrieved 50 chunks, filtered down to 38.
+  -> Processing: 'What is the growth rate of NVIDIA's data center revenue from 2022 to 2023?' for NVDA (2022)
+    -> Retrieved 50 chunks, filtered down to 43.
+  -> Data processing complete.
+Processed Data: [
+  {
+    "value": 10613.0,
+    "excerpt": "Revenue:(In millions)Data Center$15,005 $10,613 $6,696",
+    "page": 202,
+    "company": "NVDA",
+    "year": "2022"
+  },
+  {
+    "value": 15.01,
+    "excerpt": "Data Center revenue for fiscal year 2023 was $15.01 billion, up 41% from fiscal year 2022.",
+    "page": 116,
+    "company": "NVDA",
+    "year": "2023"
+  },
+  {
+    "value": 41.4,
+    "excerpt": "Data Center$15,005 $10,613 $6,696",
+    "page": 202,
+    "company": "NVDA",
+    "year": "2022"
+  }
+]
+Step 4: Synthesizing final answer...
+  -> Synthesis complete.
+
+--- FINAL ANSWER ---
+
+{
+  "query": "How did NVIDIA\u2019s data center revenue grow from 2022 to 2023?",
+  "answer": "NVIDIA\u2019s Data Center revenue increased from $10.613\u202fbillion in fiscal 2022 (value\u202f=\u202f10613.0\u202fmillion) to $15.01\u202fbillion in fiscal 2023, a rise of about 41\u202f% (value\u202f\u2248\u202f41.4). The 2023 figure is the higher (winner).",
+  "reasoning": "I extracted the 2022 revenue (10613.0) and the 2023 revenue (15.01) and the reported 41% growth from the data, compared the two revenue figures, and concluded that 2023\u2019s revenue is larger, making it the winner.",
+  "sub_queries": [
+    "What was NVIDIA's data center revenue in 2022?",
+    "What was NVIDIA's data center revenue in 2023?",
+    "What is the growth rate of NVIDIA's data center revenue from 2022 to 2023?"
+  ],
+  "sources": [
+    {
+      "value": 10613.0,
+      "excerpt": "Revenue:(In millions)Data Center$15,005 $10,613 $6,696",
+      "page": 202,
+      "company": "NVDA",
+      "year": "2022"
+    },
+    {
+      "value": 15.01,
+      "excerpt": "Data Center revenue for fiscal year 2023 was $15.01 billion, up 41% from fiscal year 2022.",
+      "page": 116,
+      "company": "NVDA",
+      "year": "2023"
+    },
+    {
+      "value": 41.4,
+      "excerpt": "Data Center$15,005 $10,613 $6,696",
+      "page": 202,
+      "company": "NVDA",
+      "year": "2022"
+    }
+  ]
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+2.
+
+(my_project_env) nischitkr@Nischits-MacBook-Air coding % python main.py query "What was Microsoft’s total revenue in 2023?"
+Initializing Financial Agent...
+Successfully connected to vector store.
+Step 1: Classifying query intent...
+  -> Query type: quantitative
+Step 2: Decomposing query...
+  -> Sub-queries: ['What was Microsoft’s total revenue in 2023?']
+Step 3: Executing 'quantitative' tool for each sub-query...
+  -> Processing: 'What was Microsoft’s total revenue in 2023?' for MSFT (2023)
+    -> Retrieved 50 chunks, filtered down to 46.
+  -> Data processing complete.
+Processed Data: [
+  {
+    "value": 211915.0,
+    "excerpt": "Total $ 211,915 $ 198,270 $ 168,088",
+    "page": 212,
+    "company": "MSFT",
+    "year": "2023"
+  }
+]
+Step 4: Synthesizing final answer...
+  -> Synthesis complete.
+
+--- FINAL ANSWER ---
+
+{
+  "query": "What was Microsoft\u2019s total revenue in 2023?",
+  "answer": "Microsoft reported total revenue of $211,915 million in 2023, which is the highest (and only) value among the companies listed.",
+  "reasoning": "Extracted the 2023 revenue value for Microsoft from the data; with only one company present, its value is automatically the winner.",
+  "sub_queries": [
+    "What was Microsoft\u2019s total revenue in 2023?"
+  ],
+  "sources": [
+    {
+      "value": 211915.0,
+      "excerpt": "Total $ 211,915 $ 198,270 $ 168,088",
+      "page": 212,
+      "company": "MSFT",
+      "year": "2023"
+    }
+  ]
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+3.
+
+(my_project_env) nischitkr@Nischits-MacBook-Air coding % python main.py query "What percentage of Google's 2023 revenue came from advertising?"
+Initializing Financial Agent...
+Successfully connected to vector store.
+Step 1: Classifying query intent...
+  -> Query type: quantitative
+Step 2: Decomposing query...
+  -> Sub-queries: ["What percentage of Google's 2023 revenue came from advertising?"]
+Step 3: Executing 'quantitative' tool for each sub-query...
+  -> Processing: 'What percentage of Google's 2023 revenue came from advertising?' for GOOGL (2023)
+    -> Retrieved 50 chunks, filtered down to 45.
+  -> Data processing complete.
+Processed Data: [
+  {
+    "value": 77.38,
+    "excerpt": "Google advertising 237,855 ... Total revenues $307,394",
+    "page": 173,
+    "company": "GOOGL",
+    "year": "2023"
+  }
+]
+Step 4: Synthesizing final answer...
+  -> Synthesis complete.
+
+--- FINAL ANSWER ---
+
+{
+  "query": "What percentage of Google's 2023 revenue came from advertising?",
+  "answer": "Google's advertising accounted for 77.38% of its 2023 revenue, making it the highest (and only) value among the listed companies.",
+  "reasoning": "The extracted data provided a single value of 77.38% for Google in 2023. Since there are no other companies to compare, this value is both the listed figure and the winner.",
+  "sub_queries": [
+    "What percentage of Google's 2023 revenue came from advertising?"
+  ],
+  "sources": [
+    {
+      "value": 77.38,
+      "excerpt": "Google advertising 237,855 ... Total revenues $307,394",
+      "page": 173,
+      "company": "GOOGL",
+      "year": "2023"
+    }
+  ]
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+4.
+
+(my_project_env) nischitkr@Nischits-MacBook-Air coding % python main.py query "Compare the R&D spending as a percentage of revenue across all three companies in 2023" 
+Initializing Financial Agent...
+Successfully connected to vector store.
+Step 1: Classifying query intent...
+  -> Query type: quantitative
+Step 2: Decomposing query...
+  -> Sub-queries: ["What was Microsoft's R&D spending as a percentage of revenue in 2023?", "What was Google's (Alphabet's) R&D spending as a percentage of revenue in 2023?", "What was NVIDIA's R&D spending as a percentage of revenue in 2023?"]
+Step 3: Executing 'quantitative' tool for each sub-query...
+  -> Processing: 'What was Microsoft's R&D spending as a percentage of revenue in 2023?' for MSFT (2023)
+    -> Retrieved 50 chunks, filtered down to 48.
+  -> Processing: 'What was Google's (Alphabet's) R&D spending as a percentage of revenue in 2023?' for GOOGL (2023)
+    -> Retrieved 50 chunks, filtered down to 45.
+  -> Processing: 'What was NVIDIA's R&D spending as a percentage of revenue in 2023?' for NVDA (2023)
+    -> Retrieved 50 chunks, filtered down to 34.
+  -> Data processing complete.
+Processed Data: [
+  {
+    "value": 15.0,
+    "excerpt": "Research and development expenses as a percentage of revenues 14 % 15 %",
+    "page": 120,
+    "company": "MSFT",
+    "year": "2023"
+  },
+  {
+    "value": 15.0,
+    "excerpt": "Research and development expenses as a percentage of revenues 14 % 15 %",
+    "page": 120,
+    "company": "GOOGL",
+    "year": "2023"
+  },
+  {
+    "value": 27.2,
+    "excerpt": "Operating expenses Research and development 14.2 27.2",
+    "page": 138,
+    "company": "NVDA",
+    "year": "2023"
+  }
+]
+Step 4: Synthesizing final answer...
+  -> Synthesis complete.
+
+--- FINAL ANSWER ---
+
+{
+  "query": "Compare the R&D spending as a percentage of revenue across all three companies in 2023",
+  "answer": "In 2023, NVDA had the highest R&D spending as a percentage of revenue at 27.2%, while MSFT and GOOGL were tied at 15.0% each.",
+  "reasoning": "I compared the extracted 'value' fields for each company. NVDA's value (27.2) exceeds the equal values for MSFT and GOOGL (both 15.0), making NVDA the clear leader.",
+  "sub_queries": [
+    "What was Microsoft's R&D spending as a percentage of revenue in 2023?",
+    "What was Google's (Alphabet's) R&D spending as a percentage of revenue in 2023?",
+    "What was NVIDIA's R&D spending as a percentage of revenue in 2023?"
+  ],
+  "sources": [
+    {
+      "value": 15.0,
+      "excerpt": "Research and development expenses as a percentage of revenues 14 % 15 %",
+      "page": 120,
+      "company": "MSFT",
+      "year": "2023"
+    },
+    {
+      "value": 15.0,
+      "excerpt": "Research and development expenses as a percentage of revenues 14 % 15 %",
+      "page": 120,
+      "company": "GOOGL",
+      "year": "2023"
+    },
+    {
+      "value": 27.2,
+      "excerpt": "Operating expenses Research and development 14.2 27.2",
+      "page": 138,
+      "company": "NVDA",
+      "year": "2023"
+    }
+  ]
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+5.
+
+(my_project_env) nischitkr@Nischits-MacBook-Air coding % python main.py query "Which company had the highest operating margin in 2023"                                           
+Initializing Financial Agent...
+Successfully connected to vector store.
+Step 1: Classifying query intent...
+  -> Query type: quantitative
+Step 2: Decomposing query...
+  -> Sub-queries: ["What was Microsoft's operating margin in 2023?", "What was Google's operating margin in 2023?", "What was NVIDIA's operating margin in 2023?"]
+Step 3: Executing 'quantitative' tool for each sub-query...
+  -> Processing: 'What was Microsoft's operating margin in 2023?' for MSFT (2023)
+    -> Retrieved 50 chunks, filtered down to 39.
+  -> Processing: 'What was Google's operating margin in 2023?' for GOOGL (2023)
+    -> Retrieved 50 chunks, filtered down to 43.
+  -> Processing: 'What was NVIDIA's operating margin in 2023?' for NVDA (2023)
+    -> Retrieved 50 chunks, filtered down to 23.
+  -> Data processing complete.
+Processed Data: [
+  {
+    "value": null,
+    "excerpt": null,
+    "page": null,
+    "company": "MSFT",
+    "year": "2023"
+  },
+  {
+    "value": 27.43,
+    "excerpt": "Total revenues $282,836 $307,394 (2023) and Total income from operations $74,842 $84,293 (2023)",
+    "page": 122,
+    "company": "GOOGL",
+    "year": "2023"
+  },
+  {
+    "value": null,
+    "excerpt": null,
+    "page": null,
+    "company": "NVDA",
+    "year": "2023"
+  }
+]
+Step 4: Synthesizing final answer...
+  -> Synthesis complete.
+
+--- FINAL ANSWER ---
+
+{
+  "query": "Which company had the highest operating margin in 2023",
+  "answer": "GOOGL had the highest operating margin in 2023 with a value of 27.43. The values are: GOOGL\u202f=\u202f27.43, MSFT\u202f=\u202fnull, NVDA\u202f=\u202fnull.",
+  "reasoning": "Compared the operating margin values for each company; only GOOGL provided a numeric value (27.43), while MSFT and NVDA were null, making GOOGL the clear highest.",
+  "sub_queries": [
+    "What was Microsoft's operating margin in 2023?",
+    "What was Google's operating margin in 2023?",
+    "What was NVIDIA's operating margin in 2023?"
+  ],
+  "sources": [
+    {
+      "value": null,
+      "excerpt": null,
+      "page": null,
+      "company": "MSFT",
+      "year": "2023"
+    },
+    {
+      "value": 27.43,
+      "excerpt": "Total revenues $282,836 $307,394 (2023) and Total income from operations $74,842 $84,293 (2023)",
+      "page": 122,
+      "company": "GOOGL",
+      "year": "2023"
+    },
+    {
+      "value": null,
+      "excerpt": null,
+      "page": null,
+      "company": "NVDA",
+      "year": "2023"
+    }
+  ]
+}
