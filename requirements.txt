@@ -1,0 +1,18 @@
+# For data fetching and parsing
+requests
+beautifulsoup4
+lxml # Included for bs4's parsing flexibility
+
+# PDF parsing (kept in case of future extension, bs4 uses it as a fallback)
+pdfplumber
+
+# Core AI/ML libraries
+langchain
+sentence-transformers
+chromadb
+
+# LLM provider
+groq
+
+# Optional, for progress bars
+tqdm
